@@ -4,6 +4,12 @@ const WebSocketComponent = () => {
   const { sendMessage, lastMessage, readyState } = useWebSocket(
     "ws://localhost:8080"
   );
+
+  const wss = new WebSocket("ws://localhost:8080");
+
+  wss.on("connection", (ws) => {
+    console.log(ws);
+  });
   return (
     <div className="flex flex-col  justify-center m-2">
       <div>

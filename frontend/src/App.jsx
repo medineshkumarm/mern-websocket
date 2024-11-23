@@ -1,9 +1,9 @@
-import WebSocketComponent from "./web-socket";
+import Game2 from "./tictactoe/g";
 
 const App = () => {
   return (
-    <div>
-      <WebSocketComponent />
+    <div className="">
+      <Game2 />
     </div>
   );
 };
