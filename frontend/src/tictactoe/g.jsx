@@ -5,6 +5,7 @@ import RadarLobby from "./radar-lobby";
 import GameOutcomeModal from "./game-out-model";
 import { AlertTriangle, Circle, UserCircle2, X } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Game2 = () => {
   const [socket, setSocket] = useState(null);
   const [username, setUsername] = useState("");
@@ -59,7 +60,9 @@ const Game2 = () => {
   };
 
   useEffect(() => {
-    const newSocket = io("http://localhost:4000", { reconnectionAttempts: 3 });
+    const newSocket = io(API_URL, {
+      reconnectionAttempts: 3,
+    });
     setSocket(newSocket);
 
     newSocket.on("connect_error", () =>
